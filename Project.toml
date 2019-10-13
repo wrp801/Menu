@@ -1,0 +1,8 @@
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+ExcelReaders = "c04bee98-12a5-510c-87df-2a230cb6e075"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+Taro = "61d0e4fa-4e73-5030-88a9-ae4c27b203dd"
+XLSX = "fdbf4ff8-1666-58a4-91e7-1b58723a45e0"
