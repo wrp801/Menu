@@ -2,51 +2,49 @@ using StatsBase
 import JSON
 
 
-function show_menu(n_days,print_menu = false)
+function show_menu(n_days,;print_menu = false)
 
     my_menu = Dict()
 
     open("poulsen menu.json","r") do f
-             
+
 
         my_menu = JSON.parse(f);
         end ## end do
 
 
     function n_random_days(n = n_days) ## this function provides random days between 1 and the length of the menu
-        
-         
+
+
 
         sample(1:length(my_menu),n,replace = false)
 
         end ## end function
 
     n = n_random_days(n_days)
-    n = collect(map(x -> string(x),n)) ## changes the values to a string instead of an integer 
+    n = collect(map(x -> string(x),n)) ## changes the values to a string instead of an integer
 
     if print_menu
         for i in n
             println(my_menu[i])
         end ## end for
-    else 
+    else
+        ## create an empty dictionary to return the filtered values
+        menu_filtered = Dict()
 
-        # n_key = filter(m->keys(m) in n,my_menu)
+        n_key = collect(filter(k -> k in n,keys(my_menu)))
 
-        # return my_menu[n_key]
+        for (k,v) in my_menu
+            if k in n_key
+                push!(menu_filtered,k=>v)
+            end ## end if
+        end ## end for
 
-        k = keys(my_menu)
+        return menu_filtered
 
-        println(k)
-        println(n)
-        
 
     end
 
 
 
 end ## end function
-
-show_menu(4,false)
-
-
-
