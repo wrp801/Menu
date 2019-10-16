@@ -12,6 +12,19 @@ function show_menu(n_days,;print_menu = false)
         my_menu = JSON.parse(f);
         end ## end do
 
+    current_menu = Dict()
+    open("current menu.json","r") do f 
+        m = JSON.parse(f)
+    end ## end do 
+
+    vals_my_menu = collect(values(my_menu))
+
+    vals_current = collect(values(current_menu))
+
+    my_menu = Dict(filter(ff -> !(values(ff) in vals_current),my_menu ))
+
+    
+
 
     function n_random_days(n = n_days) ## this function provides random days between 1 and the length of the menu
 
